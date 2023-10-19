@@ -1,7 +1,7 @@
 					<div class="ctn_product">
 						<div class="ctn_product_ttl">
 						    <span>
-							  TÀI KHOẢN
+							<?php echo _text('account') ?>
 						    </span>
 						    <span style="float: right;margin-right: 5%;" >
 						    	<img src="IMAGES/icon_vmega.png">
@@ -12,7 +12,7 @@
 								<a href="dangnhap.php">
 					    			<i class="fa fa-sign-in">
 					    			</i>
-					    			ĐĂNG NHẬP
+					    			<?php echo _text('login') ?>
 					    		</a>
 					    	</li>
 					    	<li>
@@ -20,7 +20,7 @@
 								<a href="dangky.php">
 					    			<i class="fa fa-key">
 					    			</i>
-					    			ĐĂNG KÝ
+					    			<?php echo _text('sign up') ?>
 					    		</a>
 					    	</li>
 					    	<!-- <li>

@@ -59,7 +59,7 @@
 			</div>
 			<div id="mid">
 				<div class="md_search">
-					<input id="all" type="text" name="all" value="" placeholder="Tìm kiếm..." style="padding-left: 1%;">
+					<input id="all" type="text" name="all" value="" placeholder="<?php echo _text('search') ?>" style="padding-left: 1%;">
 					<button type="button" value="search" onclick="searchItem(1);">
 						<i class="fa fa-search">
 						</i>
@@ -75,27 +75,27 @@
 				<ul class="lst_menu_ul">
 					<li class="addclass1" onclick="addclass();">
 						<a href="index.php" title="TRANG CHỦ">
-							<span>TRANG CHỦ</span>
+							<span><?php echo _text('home page') ?></span>
 						</a>
 						<div></div>
 					</li>
 					<li class="s">/</li>
 					<li class="addclass1">
 						<a href="sanpham.php" title="SẢN PHẨM">
-							<span>SẢN PHẨM</span>
+							<span><?php echo _text('product') ?></span>
 						</a>
 					</li>
 					<li class="s">/</li>
 					<li>
-						<a href="tintuc.php" title="TIN TỨC">TIN TỨC</a>
+						<a href="tintuc.php" title="TIN TỨC"><?php echo _text('news') ?></a>
 					</li>
 					<li class="s">/</li>
 					<li>
-						<a href="gioithieu.php" title="GIỚI THIỆU">GIỚI THIỆU</a>
+						<a href="gioithieu.php" title="GIỚI THIỆU"><?php echo _text('about us') ?></a>
 					</li>
 					<li class="s">/</li>
 					<li>
-						<a href="lienhe.php" title="LIÊN HỆ">LIÊN HỆ</a>
+						<a href="lienhe.php" title="LIÊN HỆ"><?php echo _text('contact') ?></a>
 					</li>
 					<li class="s">/</li>
 				</ul>

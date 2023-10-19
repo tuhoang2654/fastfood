@@ -17,3 +17,4 @@ buy = Buy
 add to cart = Add to cart
 my order = My order
 logout = Logout
+account = Account

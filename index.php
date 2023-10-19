@@ -11,7 +11,10 @@
 	include("includes/connect_db.php");
 	include("includes/check_errors.php");
 
-	include("loader.php");
+
+    include_once(CORE_PATH.'/Arr.php');
+    include_once(CORE_PATH.'/Lang.php');
+	include_once(BASE_PATH.'/../helpers/utils.php');
 	use Core\Arr;
 
 	$lang = $_GET['lang']??'vi';

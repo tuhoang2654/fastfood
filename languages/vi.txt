@@ -17,3 +17,4 @@ buy = Mua
 add to cart = Thêm vào giỏ hàng
 my order = Đơn hàng của tôi
 logout = Đăng xuất
+account = Tài khoản

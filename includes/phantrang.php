@@ -1,6 +1,17 @@
 <?php
 	require("connect_db.php");
 	include("check_errors.php");
+
+	define('BASE_PATH',dirname(__FILE__));
+	define('CORE_PATH',BASE_PATH.'/core');
+	include_once(CORE_PATH.'/Arr.php');
+    include_once(CORE_PATH.'/Lang.php');
+	include_once(BASE_PATH.'/../helpers/utils.php');
+	use Core\Arr;
+
+	$lang = $_GET['lang']??'vi';
+	setLang($lang);
+
 	if($_POST['page'])
 	{
 		$page = $_POST['page'];
@@ -60,10 +71,9 @@
 					}
 				?>
 				<div class="prt_item_buy" onclick="addCart(<?php echo $masp;?>);" style="cursor: pointer;">
-					<a>
-						MUA HÀNG
-					</a>
-					<img src="IMAGES/addcart2.png">
+					<button class="button-5" role="button">
+						<?php echo _text('add to cart') ?>
+					</button>
 				</div>
 			</div>
 		</div>
