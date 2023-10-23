@@ -1,17 +1,23 @@
 <?php
+	session_start();
 	require("connect_db.php");
 	include("check_errors.php");
 
 	define('BASE_PATH',dirname(__FILE__));
-	define('CORE_PATH',BASE_PATH.'/core');
+	define('CORE_PATH',BASE_PATH.'/../core');
+
 	include_once(CORE_PATH.'/Arr.php');
     include_once(CORE_PATH.'/Lang.php');
 	include_once(BASE_PATH.'/../helpers/utils.php');
 	use Core\Arr;
-
-	$lang = $_GET['lang']??'vi';
+	
+	// $lang = $_GET['lang']??'en';
+	$lang = $_SESSION['lang'];
+	// print($lang);
+	// $lang = $_GET['lang'] ? 'en' 'vi';
 	setLang($lang);
 
+	
 	if($_POST['page'])
 	{
 		$page = $_POST['page'];
@@ -40,86 +46,89 @@
 		$result_tk1=mysqli_query($dbc,$query_tk1);check_errors($result_tk1,$query_tk1);
 		list($km)=mysqli_fetch_array($result_tk1,MYSQLI_NUM);
     	?>
-		<div class="col-md-3 col-sm-3 col-xs-12" style="padding: 0;">
-			<div class="product-item" style="position: relative;margin: 5px 3px 5px 0 ;">
-				<div class="prt_item_banner" style="min-height: 146px;">
-					<a href="chitietsanpham.php?san-pham=<?php echo $masp;?>" style="float: none;">
-						<img src=<?php echo $linkhinh;?>>
-					</a>
-				</div>
-				<div class="prt_item_title">
-					<a href="chitietsanpham.php?san-pham=<?php echo $masp;?>">
-						<?php echo ucwords($tensp); ?>
-					</a>
-				</div>
-				<?php
+
+
+<div class="col-md-3 col-sm-3 col-xs-12" style="padding: 0;">
+    <div class="product-item" style="position: relative;margin: 5px 3px 5px 0 ;">
+        <div class="prt_item_banner" style="min-height: 146px;">
+            <a href="chitietsanpham.php?san-pham=<?php echo $masp;?>" style="float: none;">
+                <img src=<?php echo $linkhinh;?>>
+            </a>
+        </div>
+        <div class="prt_item_title">
+            <a href="chitietsanpham.php?san-pham=<?php echo $masp;?>">
+                <?php echo ucwords($tensp); ?>
+            </a>
+        </div>
+        <?php
 					if(isset($km)){
 				?>
-					<div class="prt_item_price">
-						<span style="text-decoration: line-through;"> <?php echo number_format($gia,0,',','.'); ?> ₫ </span>
-						<span style="color: red;">
-							<?php echo number_format(($gia-($gia*$km)/100),0,',','.'); ?> ₫
-						</span>
-					</div>
-				<?php
+        <div class="prt_item_price">
+            <span style="text-decoration: line-through;"> <?php echo number_format($gia,0,',','.'); ?> ₫ </span>
+            <span style="color: red;">
+                <?php echo number_format(($gia-($gia*$km)/100),0,',','.'); ?> ₫
+            </span>
+        </div>
+        <?php
 					}else{
 				?>
-						<div class="prt_item_price">
-							<?php echo number_format($gia,0,',','.'); ?> ₫
-						</div>
-				<?php
+        <div class="prt_item_price">
+            <?php echo number_format($gia,0,',','.'); ?>đ
+        </div>
+        <?php
 					}
 				?>
-				<div class="prt_item_buy" onclick="addCart(<?php echo $masp;?>);" style="cursor: pointer;">
-					<button class="button-5" role="button">
-						<?php echo _text('add to cart') ?>
-					</button>
-				</div>
-			</div>
-		</div>
-	<?PHP }?>
-	<div style="width: 100%;text-align: center;clear: both;">
-		<?php
+        <div class="prt_item_buy" onclick="addCart(<?php echo $masp;?>);" style="cursor: pointer;">
+            <button class="button-5" role="button">
+				<?php echo _text('add to cart'); ?>
+            </button>
+        </div>
+    </div>
+</div>
+<?PHP }?>
+<div style="width: 100%;text-align: center;clear: both;">
+    <?php
 			echo "<ul class='pagination click_page'>";
-			if($per_page>1)
+			if($per_page > 1)
 			{
-				if($current_page!=1)
+				if($current_page != 1)
 				{
 					echo "<li page='".($current_page - 1)."'><a>Trở về</a></li>";
 				}
-				for($i=1;$i<=$per_page;$i++)
+				for($i = 1;$i <= $per_page;$i++)
 				{
-					if($i!=$current_page)
+					if($i != $current_page)
 					{
 						echo "<li page='".$i."'><a>{$i}</a></li>";
 					}
 					else{
 						echo "<li class='active' page='".$i."'><a>{$i}</a></li>";
+						
 					}
 				}
-					if($current_page!=$per_page)
+					if($current_page != $per_page)
 					{
-						echo "<li page='".($current_page+1)."'><a>Tiếp</a></li>";
+						echo "<li page='".($current_page+1)."'><a>-></a></li>";			
 					}
 			}
 			echo "</ul>";
 		?>
-	</div>
+</div>
 <script type="text/javascript">
-	$(".click_page li").on('click',function(){
-		var page = $(this).attr('page');
-		phantrang(page);
-	});
-	function addCart(masp)
-	{
-		$.ajax({
-			type:"POST",
-			url:"includes/addCart.php",
-			data:"id="+masp,
-			cache:false,
-			success:function(){
-				alert("Bạn đã thêm vào giỏ hàng thành công");
-			}
-		});
-	}
+$(".click_page li").on('click', function() {
+    var page = $(this).attr('page');
+    phantrang(page);
+});
+
+function addCart(masp) {
+    $.ajax({
+        type: "POST",
+        url: "includes/addCart.php",
+        data: "id=" + masp,
+        cache: false,
+        success: function() {
+            alert("Bạn đã thêm vào giỏ hàng thành công");
+        }
+    });
+}
 </script>

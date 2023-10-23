@@ -26,16 +26,19 @@
 					?>
 				</div>
 				<?php
-					$query_sdh="SELECT count(madh) FROM donhang";
-					$result_sdh=mysqli_query($dbc,$query_sdh);check_errors($result_sdh,$query_sdh);
-					list($sodh)=mysqli_fetch_array($result_sdh,MYSQLI_NUM);
+					$query_sdh = "SELECT count(madh) FROM donhang";
+					$result_sdh = mysqli_query($dbc,$query_sdh);
+					check_errors($result_sdh,$query_sdh);
+					list($sodh) = mysqli_fetch_array($result_sdh,MYSQLI_NUM);
 
 					$query_tt = "SELECT sum(tongtien) FROM donhang WHERE tinhtrang=N'đã giao'";
-					$result_tt = mysqli_query($dbc,$query_tt);check_errors($result_sdh,$query_tt);
+					$result_tt = mysqli_query($dbc,$query_tt);
+					check_errors($result_sdh,$query_tt);
 					list($tt) = mysqli_fetch_array($result_tt,MYSQLI_NUM);
 
 					$query = "SELECT count(makh) FROM khachhang";
-					$result = mysqli_query($dbc,$query);check_errors($result_sdh,$query);
+					$result = mysqli_query($dbc,$query);
+					check_errors($result_sdh,$query);
 					list($dhh) = mysqli_fetch_array($result,MYSQLI_NUM);
 				?>
 				<div class="col-sm-10 contain_right">
@@ -45,7 +48,7 @@
 						<div class="progress" style="height:30px;margin-top: 2%;">
 							<div class="progress-bar" style="width:40%;height:30px"></div>
 						</div>
-						<div>Tổng số tiền thu được: <label><?php echo number_format(($tt),0,',','.'); ?> ₫ đồng</label></div>
+						<div>Tổng số tiền thu được: <label><?php echo number_format(($tt),0,',','.'); ?> ₫</label></div>
 						<div class="progress" style="height:30px;margin-top: 2%;">
 							<div class="progress-bar" style="width:60%;height:30px"></div>
 						</div>

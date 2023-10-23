@@ -1,7 +1,19 @@
+<?php
+
+	include_once(CORE_PATH.'/Arr.php');
+    include_once(CORE_PATH.'/Lang.php');
+	include_once(BASE_PATH.'/../helpers/utils.php');
+	use Core\Arr;
+	
+	// $lang = $_GET['lang']??'en';
+	$lang = $_SESSION['lang'];
+	// $lang = $_GET['lang'] ? 'en' 'vi';
+	setLang($lang);
+?>
 <div class="ctn_ports">
 	<div class="ctn_ports_ttl">
 		<span>
-			Bài viết nổi bật
+			<?php echo _text('featured posts'); ?>
 		</span>
 		<span style="float: right;margin-right: 5%;">
 		    <img src="IMAGES/icon_vmega.png">

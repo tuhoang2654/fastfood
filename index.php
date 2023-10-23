@@ -18,6 +18,8 @@
 	use Core\Arr;
 
 	$lang = $_GET['lang']??'vi';
+    $_SESSION['lang'] = $lang;
+    // print($_SESSION['lang']);
 	setLang($lang);
 ?>
 
@@ -116,7 +118,7 @@
             <div style="background-color:#d74b33;float: left;color: white;">
                 <h1
                     style="font-size: 18px; font-weight: normal; padding: 0 12px; text-align: left; margin: 0!important;line-height: 31px">
-                    Sản phẩm
+                    <?php echo _text('product') ?>
                 </h1>
             </div>
             <div style="border-bottom:solid 1px #d74b33;clear: both;padding-top: 0.2%;"></div>

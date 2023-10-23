@@ -24,6 +24,8 @@
 	
 	include_once(BASE_PATH.'/../helpers/utils.php');
 	$lang = $_GET['lang'] ?? 'vi';
+    // print($lang);
+    $_SESSION['lang'] = $lang;
 	setLang($lang);
 	?>
     <div id="da_w2">

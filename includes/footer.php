@@ -1,3 +1,15 @@
+<?php
+	include_once(CORE_PATH.'/Arr.php');
+    include_once(CORE_PATH.'/Lang.php');
+	include_once(BASE_PATH.'/../helpers/utils.php');
+	use Core\Arr;
+	
+	// $lang = $_GET['lang']??'en';
+	$lang = $_SESSION['lang'];
+	// $lang = $_GET['lang'] ? 'en' 'vi';
+	setLang($lang);
+	
+	?>
 <div id="footer">
 		<div class="ftr_img">
 		<img src="IMAGES/logo-pizzahut.png">
@@ -6,7 +18,7 @@
 			<div class="ftr_container_ptr_1 ftr_ctn_flt">
 				<div>
 					<h4>
-						GIỚI THIỆU
+						<?php echo _text('about us'); ?>	
 					</h4>
 					<ul>
 						<li>
@@ -30,7 +42,7 @@
 			<div class="ftr_container_ptr_2 ftr_ctn_flt">
 				<div>
 					<h4>
-						CHĂM SÓC KHÁCH HÀNG
+						<?php echo _text('take care customers'); ?>
 					</h4>
 					<ul>
 						<li>
@@ -51,7 +63,7 @@
 			<div class="ftr_container_ptr_3 ftr_ctn_flt">
 				<div class="ttl">
 					<h4>
-						LIÊN HỆ
+					<?php echo _text('contact'); ?>
 					</h4>
 					<div>
 						<h4>Tây Hồ - Hà Nội</h4>

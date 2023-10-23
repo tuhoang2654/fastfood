@@ -14,14 +14,24 @@
 </head>
 <body>
 <?php
+	
 	define('BASE_PATH',dirname(__FILE__));
 	define('CORE_PATH',BASE_PATH.'/../core');
 	include_once(CORE_PATH.'/Arr.php');
 	include_once(CORE_PATH.'/Lang.php');
 	
 	include_once(BASE_PATH.'/../helpers/utils.php');
-	$lang = $_GET['lang'] ?? 'vi';
-	setLang($lang);
+
+	if(isset($_SESSION['lang']))
+	{
+		$lang = $_SESSION['lang'];
+		// print('day la trong if ' . $lang);
+		setLang($lang);
+	} else {}
+
+		$lang = $_GET['lang'] ?? 'vi';
+		$_SESSION['lang'] = $lang;
+		setLang($lang);
 	?>
 	<div id="da_w2">
 		<div id="header">

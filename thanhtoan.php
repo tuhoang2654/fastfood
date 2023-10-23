@@ -111,11 +111,25 @@
 					</div>
 					<h2>THANH TOÁN</h2>
 					<div class="form-group trsport_div">
-						<select name="pay_item" class="form-control ng-pristine ng-valid ng-touched" id="pay_item">
+						<select name="pay_item" class="form-control ng-pristine ng-valid ng-touched" id="pay_item" onchange="checkPayment();">
 							<option value="Trực tiếp">TRỰC TIẾP</option>
-							<option value="Ngân hàng">NGÂN HÀNG</option>
+							<option value="Ngân hàng" id="bank-payment">NGÂN HÀNG</option>
 						</select>
 					</div>
+
+					<script type="text/javascript" charset="utf-8">
+						function checkPayment() {
+								let bankPayment = document.getElementById('pay_item').value;
+							if(bankPayment === 'Ngân hàng') {
+								document.getElementById('qr-img').style.display='block';
+							} else {
+								document.getElementById('qr-img').style.display='none';
+							}
+						}
+						
+					</script>
+
+					<img src="IMAGES/qr.jpg" alt="qr" style="width:50%;height:50%;" id="qr-img" hidden>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-12 col-xs-12 payment-step step2">
