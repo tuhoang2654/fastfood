@@ -1,6 +1,6 @@
 					<ul class="list">
 						<li>
-							<a href="" style="background-color: #1b926c;">
+							<a href="admin.php" style="background-color: #1b926c;">
 								<i class="fa fa-fw fa-dashboard"></i> Dashboard
 							</a>
 						</li>
