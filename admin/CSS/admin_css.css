@@ -84,3 +84,18 @@ ul{
 	width: 60%;
 	height: 14%;
 }
+
+@media only screen and (max-width: 768px) {
+	#container {
+	  flex-direction: column;
+	  align-items: center;
+	}
+  
+	.list li a {
+	  padding: 10px;
+	}
+  
+	.ctn_mid {
+	  padding-left: 0;
+	}
+  }

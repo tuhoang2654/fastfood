@@ -6,12 +6,13 @@
     <meta charset="UTF-8">
     <title>Pizza Hut</title>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="./CSS/mycss.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/mycss.css" id="theme-style">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="JAVASCRIPT/pbjquery.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
     <script src="JAVASCRIPT/jquery1.js" type="text/javascript"></script>
     <script src="JAVASCRIPT/jquery2.js" type="text/javascript"></script>
+    <script src="JAVASCRIPT/dark-mode.js"></script>
     <link rel="icon" href="IMAGES/logo-pizzahut.png" type="image/x-icon">
 </head>
 
@@ -34,6 +35,9 @@
                 <div>
                     <div class="right">
                         <ul class="menu">
+                            <li>
+                                <button id="dark-mode-toggle" onClick="toggleDarkMode()" < id="dark-mode-toggle" onClick="toggleDarkMode()" style="background-color: black; color: white;">Dark Mode</button>
+                            </li>
                             <li>
                                 <a
                                     href="?lang=<?php echo $lang == 'vi' ? 'en' : 'vi' ?>"><?php echo $lang == 'vi' ? 'English' : 'Tiếng Việt' ?></a>
@@ -165,6 +169,10 @@
                     }
                 });
             }
+        }
+
+        function toggleDarkMode() {
+            document.body.style.backgroundColor = 'black';
         }
         </script>
 </body>

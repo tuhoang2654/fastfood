@@ -67,7 +67,7 @@
 	                            </tr>
 	                        </thead>
 	                        <tbody>
-	                            Số đơn bán được
+	                            <h3>Số đơn bán được</h3>
 	                            <div id="container">
 	                                <div style="font-size:2em"> <?php echo $donhang_list[0]['sodh'] ?></div>
 	                                <div style="font-size:2em"> <?php echo $donhang_list[1]['sodh'] ?></div>
@@ -76,14 +76,14 @@
 
 
 	                            <tr>
-	                                <th scope="row"> <?php echo $donhang_list[0]['thang']; ?> </th>
+	                                <th scope="row">Tháng <?php echo $donhang_list[0]['thang']; ?> </th>
 	                                <td style="--start: 0.1; --end: <?php echo $donhang_list[0]['sodh'] / 20; ?>;"><span
-	                                        class="data"> 50 </span></td>
+	                                        class="data"> Tháng </span></td>
 	                                <!-- <td style="--start: 0.0; --end: 0.2;"><span class="data"> 20 </span></td>
 	                                <td style="--start: 0.2; --end: 0.4;"><span class="data"> 40 </span></td> -->
 	                            </tr>
 	                            <tr>
-	                                <th scope="row"> <?php echo $donhang_list[1]['thang']; ?> </th>
+	                                <th scope="row">Tháng <?php echo $donhang_list[1]['thang']; ?> </th>
 	                                <td
 	                                    style="--start: <?php echo $donhang_list[0]['sodh'] / 20; ?>; --end: <?php echo $donhang_list[1]['sodh'] / 20; ?>;">
 	                                    <span class="data"> 50 </span>
@@ -92,9 +92,9 @@
 	                                <td style="--start: 0.4; --end: 0.1;"><span class="data"> 10 </span></td> -->
 	                            </tr>
 	                            <tr>
-	                                <th scope="row"> <?php echo $donhang_list[2]['thang']; ?> </th>
+	                                <th scope="row">Tháng <?php echo $donhang_list[2]['thang']; ?> </th>
 	                                <td
-	                                    style="--start: <?php echo $donhang_list[1]['sodh'] / 20; ?>; --end: <?php echo $donhang_list[2]['sodh'] / 10; ?>;">
+	                                    style="--start: <?php echo $donhang_list[1]['sodh'] / 20; ?>; --end: <?php echo $donhang_list[2]['sodh'] / 20; ?>;">
 	                                    <span class="data"> 50 </span>
 	                                </td>
 	                                <!-- <td style="--start: 0.5; --end: 0.3;"><span class="data"> 30 </span></td>
@@ -108,19 +108,28 @@
 	                <div style="display:flex;justify-content:center;">
 	                    <div id="bar-example-1">
 	                        <table class="charts-css bar hide-data">
-
+								<h3>Số tiền thu được</h3>
 	                            <tbody>
 	                                <tr>
-	                                    <td style="--size:<?php echo $donhang_list[0]['thang']/10; ?> ;"><?php echo number_format(($donhang_list[0]['tongtien']),0,',','.'); ?><span class="data"> $ 20K </span></td>
-										
+	                                    <td style="--size:<?php echo $donhang_list[0]['thang']/10; ?>;">
+	                                        <span class="month"><bold>Tháng</bold>
+	                                            <?php echo $donhang_list[0]['thang']; ?>:</span>&nbsp;
+	                                        <?php echo number_format(($donhang_list[0]['tongtien']),0,',','.'); ?>đ
+	                                    </td>
 	                                </tr>
 	                                <tr>
-	                                    <td style="--size:<?php echo $donhang_list[1]['thang']/10; ?>;"><?php echo number_format(($donhang_list[1]['tongtien']),0,',','.'); ?><span class="data"> $ 80K </span></td>
-										
+	                                    <td style="--size:<?php echo $donhang_list[1]['thang']/10; ?>;">
+	                                        <span class="month"><bold>Tháng</bold>
+	                                            <?php echo $donhang_list[1]['thang']; ?>:</span>&nbsp;
+	                                        <?php echo number_format(($donhang_list[1]['tongtien']),0,',','.'); ?>đ
+	                                    </td>
 	                                </tr>
 	                                <tr>
-	                                    <td style="--size: <?php echo $donhang_list[2]['thang']/10; ?>;"><?php echo number_format(($donhang_list[2]['tongtien']),0,',','.'); ?><span class="data"> $ 100K </span></td>
-										
+	                                    <td style="--size:<?php echo $donhang_list[2]['thang']/10; ?>;">
+	                                        <span class="month"><bold>Tháng</bold>
+	                                            <?php echo $donhang_list[2]['thang']; ?>:</span>&nbsp;
+	                                        <?php echo number_format(($donhang_list[2]['tongtien']),0,',','.'); ?>đ
+	                                    </td>
 	                                </tr>
 	                            </tbody>
 	                        </table>
